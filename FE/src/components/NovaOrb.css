@@ -1,0 +1,65 @@
+.orb {
+  --size: 36px;
+  --speed: 7s;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: var(--size);
+  height: var(--size);
+  isolation: isolate;
+}
+
+.orb--sm {
+  --size: 28px;
+}
+
+.orb--lg {
+  --size: 104px;
+}
+
+.orb--active {
+  --speed: 1.6s;
+  animation: orb-pulse 1.6s ease-in-out infinite;
+}
+
+.orb__core,
+.orb__glow {
+  position: absolute;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #8b5cf6, #22d3ee, #6366f1, #f472b6, #8b5cf6);
+  animation: orb-spin var(--speed) linear infinite;
+}
+
+.orb__core {
+  inset: 0;
+  filter: blur(calc(var(--size) * 0.06));
+}
+
+.orb__glow {
+  inset: -30%;
+  z-index: -1;
+  opacity: 0.55;
+  filter: blur(calc(var(--size) * 0.3));
+}
+
+.orb__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.12) 32%, transparent 55%),
+    radial-gradient(circle at 70% 78%, rgba(7, 6, 14, 0.55), transparent 60%);
+  box-shadow: inset 0 0 calc(var(--size) * 0.2) rgba(255, 255, 255, 0.25);
+}
+
+@keyframes orb-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes orb-pulse {
+  50% {
+    transform: scale(1.08);
+  }
+}

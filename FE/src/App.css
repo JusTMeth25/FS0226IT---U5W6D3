@@ -1,0 +1,84 @@
+.app {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.app__main {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+}
+
+/* Animated aurora background */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.32;
+  will-change: transform;
+}
+
+.aurora__blob--violet {
+  top: -22vmax;
+  left: -8vmax;
+  width: 60vmax;
+  height: 60vmax;
+  background: radial-gradient(circle, #7c3aed 0%, transparent 62%);
+  animation: drift-a 28s ease-in-out infinite alternate;
+}
+
+.aurora__blob--cyan {
+  right: -18vmax;
+  bottom: -26vmax;
+  width: 62vmax;
+  height: 62vmax;
+  background: radial-gradient(circle, #0891b2 0%, transparent 62%);
+  animation: drift-b 34s ease-in-out infinite alternate;
+}
+
+.aurora__blob--pink {
+  top: 30%;
+  left: 45%;
+  width: 34vmax;
+  height: 34vmax;
+  background: radial-gradient(circle, #db2777 0%, transparent 62%);
+  opacity: 0.16;
+  animation: drift-c 40s ease-in-out infinite alternate;
+}
+
+.aurora__grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 10%, transparent 70%);
+}
+
+@keyframes drift-a {
+  to {
+    transform: translate(22vmax, 12vmax) scale(1.15);
+  }
+}
+
+@keyframes drift-b {
+  to {
+    transform: translate(-20vmax, -14vmax) scale(0.9);
+  }
+}
+
+@keyframes drift-c {
+  to {
+    transform: translate(-26vmax, 10vmax) scale(1.3);
+  }
+}

@@ -1,0 +1,122 @@
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 60px;
+  padding: 10px 20px;
+  padding-top: calc(10px + env(safe-area-inset-top, 0px));
+  border-bottom: 1px solid transparent;
+  background: linear-gradient(180deg, rgba(7, 6, 14, 0.75), rgba(7, 6, 14, 0));
+}
+
+.chat-header__title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: var(--display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.chat-header__chips {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.chip svg {
+  color: var(--violet-soft);
+}
+
+.chip__unit {
+  color: var(--text-faint);
+}
+
+.chip--model {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+}
+
+.chip__model-name {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chip__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-right: -5px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.35), rgba(34, 211, 238, 0.25));
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  color: #e9e5ff;
+}
+
+.chip__badge svg {
+  color: inherit;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 20px 6px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.84rem;
+  animation: msg-in 0.4s ease;
+}
+
+.banner svg {
+  flex-shrink: 0;
+}
+
+.banner--warn {
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  background: rgba(251, 191, 36, 0.08);
+  color: #fde68a;
+}
+
+.banner--error {
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.08);
+  color: #fecaca;
+}
+
+@media (max-width: 640px) {
+  .chat-header {
+    padding-inline: 12px;
+  }
+
+  .chip--model {
+    display: none;
+  }
+
+  .banner {
+    margin-inline: 12px;
+  }
+}
